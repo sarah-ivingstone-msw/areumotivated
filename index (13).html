@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ARE U Motivated | The Connection Hour</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;700;900&family=Barlow+Condensed:wght@700;900&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #CC1B1B;
+    --red-light: #E84040;
+    --black: #0D0D0D;
+    --white: #FFFFFF;
+    --off-white: #F7F5F2;
+    --gray: #E8E4E0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: var(--white);
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 6%;
+    height: 85px;
+    background: var(--black);
+    border-bottom: 2px solid var(--red);
+  }
+
+  .nav-logo img { height: 74px; display: block; }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+    align-items: center;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: var(--white);
+    font-weight: 600;
+    font-size: 0.88rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--red-light); }
+
+  .nav-cta {
+    background: var(--red) !important;
+    color: var(--white) !important;
+    padding: 0.6rem 1.4rem;
+    border-radius: 8px;
+    font-weight: 700 !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--red-light) !important; }
+
+  /* ===== HERO BANNER (full-width title) ===== */
+  .hero-banner {
+    margin-top: 85px;
+    background: var(--off-white);
+    padding: 4rem 6% 3rem;
+    text-align: center;
+    border-bottom: 2px solid var(--gray);
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--red);
+    color: var(--white);
+    border-radius: 100px;
+    padding: 0.4rem 1.2rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .hero-banner h1 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    line-height: 1.1;
+    margin-bottom: 0.4rem;
+  }
+
+  .hero-banner .script {
+    font-family: 'Great Vibes', cursive;
+    color: var(--red);
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 400;
+    text-transform: none;
+    letter-spacing: 0;
+    display: block;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-banner p {
+    font-size: 1.15rem;
+    color: #666;
+    max-width: 680px;
+    margin: 0 auto 2rem;
+    line-height: 1.75;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: 0.92rem;
+    border-radius: 10px;
+    border: 2px solid var(--black);
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .btn-primary { background: var(--red); color: var(--white); border-color: var(--red); }
+  .btn-primary:hover { background: var(--black); border-color: var(--black); }
+  .btn-secondary { background: transparent; color: var(--black); }
+  .btn-secondary:hover { background: var(--black); color: var(--white); }
+
+  /* ===== PHOTO + BIO ===== */
+  .intro {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 2px solid var(--gray);
+  }
+
+  .intro-photo {
+    width: 420px;
+    flex-shrink: 0;
+    overflow: hidden;
+    background: var(--black);
+    min-height: 600px;
+  }
+
+  .intro-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 10%;
+    display: block;
+  }
+
+  .intro-photo-label {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(13,13,13,0.85);
+    backdrop-filter: blur(6px);
+    color: var(--white);
+    padding: 0.85rem 1.5rem;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    border-top: 2px solid var(--red);
+  }
+
+  .intro-bio {
+    padding: 4rem 5%;
+    background: var(--black);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .intro-bio .section-label { color: var(--red-light); }
+
+  .intro-bio h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(2rem, 3vw, 2.8rem);
+    font-weight: 900;
+    color: var(--white);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  .intro-bio p {
+    color: rgba(255,255,255,0.7);
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 1.25rem;
+    max-width: 560px;
+  }
+
+  .bio-credentials {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .bio-credential {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-left: 4px solid var(--red);
+    border-radius: 10px;
+    padding: 0.9rem 1.25rem;
+    color: var(--white);
+    font-size: 0.92rem;
+    font-weight: 600;
+    line-height: 1.4;
+    max-width: 500px;
+  }
+
+  .bio-credential span {
+    display: block;
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.4);
+    font-weight: 400;
+    margin-bottom: 0.2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* ===== SHARED SECTION STYLES ===== */
+  .section-label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+    color: var(--red);
+  }
+
+  section h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    font-size: clamp(2rem, 4vw, 3rem);
+    line-height: 1.05;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  /* ===== APH ===== */
+  .aph-section {
+    background: var(--black);
+    padding: 6rem 6%;
+  }
+
+  .aph-section .section-label { color: var(--red-light); }
+  .aph-section h2 { color: var(--white); margin-bottom: 0.75rem; }
+  .aph-section > p {
+    color: rgba(255,255,255,0.6);
+    font-size: 1rem;
+    max-width: 580px;
+    line-height: 1.7;
+    margin-bottom: 3.5rem;
+  }
+
+  .aph-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  .aph-card {
+    padding: 2.5rem;
+    position: relative;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: transform 0.25s;
+    user-select: none;
+  }
+
+  .aph-card:hover { transform: translateY(-4px); }
+  .aph-card:nth-child(1) { background: var(--red); }
+  .aph-card:nth-child(2) { background: var(--white); }
+  .aph-card:nth-child(3) { background: var(--red); }
+
+  .aph-letter {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 6rem;
+    font-weight: 900;
+    color: rgba(0,0,0,0.08);
+    position: absolute;
+    top: 0.5rem; right: 1.5rem;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+
+  .aph-card:nth-child(1) .aph-letter { color: rgba(255,255,255,0.15); }
+  .aph-card:nth-child(3) .aph-letter { color: rgba(255,255,255,0.15); }
+
+  .aph-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.9rem;
+    margin-bottom: 0;
+    font-weight: 900;
+    text-transform: uppercase;
+  }
+
+  .aph-card:nth-child(1) h3 { color: var(--white); }
+  .aph-card:nth-child(2) h3 { color: var(--black); }
+  .aph-card:nth-child(3) h3 { color: var(--white); }
+
+  .aph-card:nth-child(1) .click-hint { color: var(--white); }
+  .aph-card:nth-child(2) .click-hint { color: var(--black); }
+  .aph-card:nth-child(3) .click-hint { color: var(--white); }
+
+  .aph-card:nth-child(1) .aph-desc { color: rgba(255,255,255,0.9); }
+  .aph-card:nth-child(2) .aph-desc { color: #555; }
+  .aph-card:nth-child(3) .aph-desc { color: rgba(255,255,255,0.9); }
+
+  .aph-card .click-hint {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 0.6rem;
+    opacity: 0.5;
+  }
+
+  .aph-desc {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease, margin-top 0.4s ease, opacity 0.4s ease;
+    margin-top: 0;
+    opacity: 0;
+    font-size: 0.97rem;
+    line-height: 1.65;
+  }
+
+  .aph-card.open .aph-desc {
+    max-height: 200px;
+    margin-top: 1.25rem;
+    opacity: 1;
+  }
+
+  /* ===== TOPICS ===== */
+  .topics-section {
+    padding: 4rem 6%;
+    background: var(--off-white);
+  }
+
+  .topics-section h2 { margin-bottom: 0.5rem; }
+
+  .topics-subtitle {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 2.5rem;
+    font-weight: 500;
+  }
+
+  .topics-grid { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+  .topic-chip {
+    background: var(--white);
+    border: 2px solid var(--gray);
+    border-radius: 100px;
+    padding: 0.6rem 1.25rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    cursor: default;
+  }
+
+  /* ===== PRINCIPLES ===== */
+  .approach {
+    padding: 4rem 6%;
+    background: var(--white);
+  }
+
+  .approach-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .approach-card {
+    padding: 2rem;
+    background: var(--off-white);
+    border-radius: 16px;
+    border: 1px solid var(--gray);
+    transition: all 0.2s;
+  }
+
+  .approach-card:hover { background: var(--white); box-shadow: 0 8px 30px rgba(0,0,0,0.08); transform: translateY(-3px); }
+
+  .approach-icon {
+    width: 46px; height: 46px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .approach-card h3 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1.15rem;
+    margin-bottom: 0.5rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+  }
+
+  .approach-card p { font-size: 0.88rem; color: #666; line-height: 1.65; }
+
+  /* ===== NEURO ===== */
+  .neuro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .neuro-left {
+    padding: 6rem 6%;
+    background: var(--black);
+  }
+
+  .neuro-left .section-label { color: var(--red-light); }
+  .neuro-left h2 { color: var(--white); margin-bottom: 1rem; }
+  .neuro-left > p { color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 2rem; }
+
+  .neuro-points { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  .neuro-point {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--white);
+    transition: background 0.2s;
+  }
+
+  .neuro-point:hover { background: rgba(204,27,27,0.2); }
+
+  .neuro-right {
+    padding: 6rem 6%;
+    background: var(--red);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .brain-emoji { font-size: 5rem; margin-bottom: 1.5rem; display: block; animation: pulse 2.5s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{transform:scale(1)} 50%{transform:scale(1.08)} }
+
+  .brain-stat {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--white);
+    display: block;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+  }
+
+  .brain-stat-label { font-size: 1rem; color: rgba(255,255,255,0.8); max-width: 260px; line-height: 1.5; display: block; margin: 0 auto 2rem; }
+  .neuro-right p { font-size: 0.9rem; color: rgba(255,255,255,0.75); line-height: 1.65; max-width: 300px; }
+
+  /* ===== BOOKING CTA ===== */
+  .rates {
+    padding: 6rem 6%;
+    background: var(--off-white);
+    text-align: center;
+  }
+
+  .rates h2 { margin-bottom: 1rem; }
+  .rates p { color: #666; font-size: 1rem; max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.7; }
+
+  .booking-box {
+    display: inline-block;
+    background: var(--white);
+    border: 2px solid var(--gray);
+    border-radius: 16px;
+    padding: 2.5rem 3rem;
+    max-width: 560px;
+    width: 100%;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.07);
+    text-align: left;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--black);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--gray);
+    border-radius: 8px;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.95rem;
+    color: var(--black);
+    background: var(--off-white);
+    transition: border-color 0.2s;
+    outline: none;
+    width: 100%;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--red);
+    background: var(--white);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 120px; }
+
+  .form-success {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    color: var(--black);
+  }
+
+  .form-success .check { font-size: 3rem; display: block; margin-bottom: 1rem; }
+  .form-success h3 { font-family: 'Barlow Condensed', sans-serif; font-size: 1.8rem; font-weight: 900; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .form-success p { color: #666; font-size: 0.95rem; }
+
+  @media(max-width: 600px) {
+    .form-row { grid-template-columns: 1fr; }
+    .booking-box { padding: 1.75rem 1.25rem; }
+  }
+
+  /* ALTERNATING HERO PARAGRAPHS */
+  .hero-paras {
+    max-width: 720px;
+    margin: 0 auto 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--gray);
+  }
+
+  .hero-para {
+    padding: 1.25rem 2rem;
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: #444;
+    text-align: left;
+  }
+
+  .hero-para-light { background: var(--white); }
+  .hero-para-gray { background: #EDEBE7; }
+
+  /* ALTERNATING BIO PARAGRAPHS */
+  .bio-paras {
+    margin-top: 1.25rem;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .bio-para {
+    padding: 1.1rem 1.5rem;
+    font-size: 0.95rem;
+    line-height: 1.75;
+  }
+
+  .bio-para-dark { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.75); }
+  .bio-para-mid { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85); }
+  footer {
+    background: var(--black);
+    color: var(--white);
+    padding: 2.5rem 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    border-top: 2px solid var(--red);
+  }
+
+  .footer-logo img { height: 36px; display: block; }
+  footer p { color: rgba(255,255,255,0.45); font-size: 0.85rem; }
+
+  .footer-tag {
+    background: var(--red);
+    color: var(--white);
+    font-weight: 700;
+    font-size: 0.78rem;
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width: 900px) {
+    .intro {
+      flex-direction: column;
+    }
+    .intro-photo {
+      width: 100%;
+      height: auto;
+      min-height: unset;
+    }
+    .intro-photo img {
+      width: 100%;
+      height: auto;
+      object-fit: unset;
+      object-position: unset;
+      display: block;
+    }
+    .aph-cards { grid-template-columns: 1fr; }
+    .approach-grid { grid-template-columns: 1fr 1fr; }
+    .neuro { grid-template-columns: 1fr; }
+  }
+
+  @media(max-width: 600px) {
+    nav { padding: 0 4%; }
+    .nav-logo img { height: 52px; }
+    .nav-links { gap: 1rem; }
+    .nav-links a { font-size: 0.75rem; }
+    .nav-cta { padding: 0.5rem 0.9rem; font-size: 0.75rem; }
+
+    .hero-banner { padding: 2.5rem 4% 2rem; }
+    .hero-banner h1 { font-size: 1.6rem; }
+    .hero-banner .script { font-size: 3rem; }
+    .hero-banner p { font-size: 0.92rem; }
+    .hero-buttons { flex-direction: column; align-items: center; }
+    .hero-buttons .btn { width: 100%; text-align: center; }
+
+    .intro-photo { height: 420px; }
+    .intro-photo img { object-fit: cover; object-position: center 10%; }
+    .intro-bio { padding: 2.5rem 4%; }
+    .intro-bio h2 { font-size: 1.8rem; }
+    .intro-bio p { font-size: 0.92rem; }
+    .bio-credential { font-size: 0.85rem; }
+
+    .aph-section { padding: 3.5rem 4%; }
+    .aph-section h2 { font-size: 1.8rem; }
+    .aph-cards { grid-template-columns: 1fr; gap: 0.75rem; }
+    .aph-card { padding: 1.75rem; }
+    .aph-card h3 { font-size: 1.5rem; }
+
+    .topics-section { padding: 3.5rem 4%; }
+    .topics-section h2 { font-size: 1.8rem; }
+    .topic-chip { font-size: 0.78rem; padding: 0.5rem 1rem; }
+
+    .approach { padding: 3.5rem 4%; }
+    .approach h2 { font-size: 1.8rem; }
+    .approach-grid { grid-template-columns: 1fr; gap: 0.75rem; }
+    .approach-card { padding: 1.5rem; }
+
+    .neuro-left { padding: 3.5rem 4%; }
+    .neuro-right { padding: 3.5rem 4%; }
+    .neuro-left h2 { font-size: 1.8rem; }
+    .brain-stat { font-size: 2.2rem; }
+
+    .rates { padding: 3.5rem 4%; }
+    .rates h2 { font-size: 1.8rem; }
+    .booking-box { padding: 1.75rem 1.5rem; }
+
+    footer { padding: 2rem 4%; flex-direction: column; text-align: center; align-items: center; }
+    .footer-logo img { height: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="are_u_logo.jpg" alt="ARE U Motivated">
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#aph">APH</a></li>
+    <li><a href="#topics">Topics</a></li>
+    <li><a href="#contact" class="nav-cta">Book a Session</a></li>
+  </ul>
+</nav>
+
+<!-- HERO BANNER -->
+<div class="hero-banner">
+  <div class="hero-badge">🌟 Services Available Worldwide</div>
+  <h1>Welcome to</h1>
+  <span class="script">The Connection Hour</span>
+  <div class="hero-paras">
+    <div class="hero-para hero-para-light">A supportive one-hour discussion designed to help people build healthier communication, strengthen relationships, and develop practical life skills.</div>
+    <div class="hero-para hero-para-gray">Participants may include teenagers, guardians, families, employees, or small groups. Teenagers and guardians may engage separately or together, depending on the organization and goals of the session. Working with teenagers requires a thoughtful approach that respects their developmental stage, abilities, and boundaries.</div>
+    <div class="hero-para hero-para-light">While the core topics remain consistent across all groups, the style and direction of the discussion are adapted to fit the population being served. Whether working with employees, small groups, teenagers, guardians, or families, the conversation is guided in a way that is relevant, respectful, and practical for the participants involved.</div>
+    <div class="hero-para hero-para-gray">The goal is to create an environment where people can reflect, learn, and practice skills that support healthier relationships, clearer communication, and personal growth.</div>
+  </div>
+  <div class="hero-buttons">
+    <a href="javascript:void(0)" onclick="window.location='mai'+'lto:'+'sarah.livingstone.msw'+'@'+'gmail.com'" class="btn btn-primary">Book a Session</a>
+    <a href="#aph" class="btn btn-secondary">Learn Our Approach</a>
+  </div>
+</div>
+
+<!-- PHOTO + BIO -->
+<div class="intro" id="about">
+  <div class="intro-photo">
+    <img src="Sarah_Livingstone_photo.jpg" alt="Sarah Livingstone">
+    <div class="intro-photo-label">Sarah Livingstone, MSW — Founder & CEO</div>
+  </div>
+  <div class="intro-bio">
+    <span class="section-label">Meet the Founder</span>
+    <h2>Sarah Livingstone</h2>
+    <div class="bio-paras">
+      <div class="bio-para bio-para-dark">Sarah Livingstone is the founder and CEO of ARE U Motivated. With more than 20 years of experience working with diverse populations, her work began with youth and families and later expanded in 2022 to include teaching employees and small groups practical skills related to burnout awareness, de-escalation, and prevention.</div>
+      <div class="bio-para bio-para-mid">Through ARE U Motivated and The Connection Hour, Sarah facilitates guided, discussion-based sessions that support both families and organizations.</div>
+      <div class="bio-para bio-para-dark">With teenagers and their guardians, sessions focus on building healthier communication, strengthening emotional awareness, and developing practical life skills for everyday challenges.</div>
+      <div class="bio-para bio-para-mid">With employees and small groups, discussions emphasize recognizing early signs of burnout, improving communication, and responding to stress in ways that prevent escalation.</div>
+      <div class="bio-para bio-para-dark">Sarah has worked with youth and families through numerous organizations, including Partnership For Strong Families, Alachua County Public Schools, the Rutgers University TRIO Program, the Child Advocacy Center, O2B Kids!, Take Stock in Children of Florida, HOPE Worldwide, UF College of Education's Akwaaba Freedom School, 21st Century Community Learning Centers, and Trinity United Methodist Church.</div>
+      <div class="bio-para bio-para-mid">She has also provided training for organizations, colleges, and professional groups, to include the University of Florida's William & Grace Dial Center for Speech and Communication Studies, Santa Fe College's Student Services Division, the Greater Gainesville Chamber of Commerce's Greater Gainesville Young Professionals and Small Business Support Group, The Children's Trust of Alachua County, the Florida Public Relations Association Gainesville Chapter, The Founders Group, and Alachua County Child Abuse Prevention Task Force.</div>
+    </div>
+    <div class="bio-credentials">
+      <div class="bio-credential">
+        <span>Master's Degree</span>
+        Social Work — Concentration in Management & Leadership
+      </div>
+      <div class="bio-credential">
+        <span>Bachelor's Degree</span>
+        Family, Youth and Community Sciences
+      </div>
+      <div class="bio-credential">
+        <span>Associate's Degree</span>
+        Elementary Education
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- APH -->
+<section class="aph-section" id="aph">
+  <span class="section-label">Our Framework</span>
+  <h2>The APH Method</h2>
+  <p>Every Connection Hour session is guided by our powerful three-pillar framework — Awareness, Perspective, and Habits — rooted in social-work principles and the science of neuroplasticity.</p>
+  <div class="aph-cards">
+    <div class="aph-card" onclick="this.classList.toggle('open')">
+      <div class="aph-letter">A</div>
+      <h3>Awareness — A</h3>
+      <div class="click-hint">Tap to learn more</div>
+      <div class="aph-desc">Recognizing thoughts, emotions, and reactions as they arise, and understanding how they influence communication and behavior.</div>
+    </div>
+    <div class="aph-card" onclick="this.classList.toggle('open')">
+      <div class="aph-letter">P</div>
+      <h3>Perspective — P</h3>
+      <div class="click-hint">Tap to learn more</div>
+      <div class="aph-desc">Exploring different viewpoints and interpretations to build empathy, flexibility, and clearer understanding in relationships.</div>
+    </div>
+    <div class="aph-card" onclick="this.classList.toggle('open')">
+      <div class="aph-letter">H</div>
+      <h3>Habits — H</h3>
+      <div class="click-hint">Tap to learn more</div>
+      <div class="aph-desc">Developing and reinforcing healthier patterns of communication, coping, and response through intentional, consistent practice.</div>
+    </div>
+  </div>
+</section>
+
+<!-- TOPICS -->
+<section class="topics-section" id="topics">
+  <span class="section-label">Current Topics</span>
+  <h2>What We Talk About</h2>
+  <p class="topics-subtitle">Sarah facilitates discussions.</p>
+  <div class="topics-grid">
+    <div class="topic-chip">Conflict Resolution</div>
+    <div class="topic-chip">Reaction vs. Response</div>
+    <div class="topic-chip">Dealing with Stress</div>
+    <div class="topic-chip">Managing Change</div>
+    <div class="topic-chip">Boundaries, Survival & Growth</div>
+    <div class="topic-chip">Accepting Your Truth</div>
+    <div class="topic-chip">Resilience & Protection</div>
+    <div class="topic-chip">The Power of Habits</div>
+    <div class="topic-chip">The Impact of Bullying</div>
+    <div class="topic-chip">Concern & Empathy</div>
+    <div class="topic-chip">Avoiding Self-Sabotage</div>
+    <div class="topic-chip">Self-Care & Affirmations</div>
+    <div class="topic-chip">Managing Needs & Resources</div>
+  </div>
+</section>
+
+<!-- PRINCIPLES -->
+<section class="approach" id="approach">
+  <span class="section-label">Our Principles</span>
+  <h2>Grounded in What Works</h2>
+  <div class="approach-grid">
+    <div class="approach-card">
+      <div class="approach-icon" style="background:#FFD23F;">💪</div>
+      <h3>Strengths-Based Perspective</h3>
+      <p>We focus on existing abilities, resilience, and potential rather than deficits — because every person already has what it takes.</p>
+    </div>
+    <div class="approach-card">
+      <div class="approach-icon" style="background:#4ECDC4;">🌍</div>
+      <h3>Person-in-Environment</h3>
+      <p>We recognize that thoughts, emotions, and behaviors are shaped by family dynamics, peer relationships, and life experiences.</p>
+    </div>
+    <div class="approach-card">
+      <div class="approach-icon" style="background:#74B9FF;">📈</div>
+      <h3>Developmental Awareness</h3>
+      <p>We tailor discussions to reflect the emotional, cognitive, and social realities of our life — meeting people where they are.</p>
+    </div>
+    <div class="approach-card">
+      <div class="approach-icon" style="background:#FF6B6B;">🤗</div>
+      <h3>Empathy & Nonjudgment</h3>
+      <p>We create supportive spaces where people feel safe to reflect, share, and explore new perspectives without fear.</p>
+    </div>
+    <div class="approach-card">
+      <div class="approach-icon" style="background:#A29BFE;">🔧</div>
+      <h3>Skill Development</h3>
+      <p>We prioritize practical tools that strengthen communication, emotional awareness, and healthy decision-making for real life.</p>
+    </div>
+    <div class="approach-card">
+      <div class="approach-icon" style="background:#FFA07A;">🔗</div>
+      <h3>Community Partnerships</h3>
+      <p>Wherever people gather — in-person or virtually.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NEURO -->
+<section class="neuro">
+  <div class="neuro-left">
+    <span class="section-label">The Science</span>
+    <h2>Why This Works: Neuroplasticity</h2>
+    <p>Neuroplasticity is the brain's ability to adapt, reorganize, and form new patterns through experience and practice. Our sessions are built on this science, empowering people to genuinely change.</p>
+    <div class="neuro-points">
+      <div class="neuro-point"><span>💬</span><span>Communication styles can be strengthened</span></div>
+      <div class="neuro-point"><span>😌</span><span>Emotional responses can be reshaped</span></div>
+      <div class="neuro-point"><span>🎯</span><span>Reactions can become more intentional</span></div>
+      <div class="neuro-point"><span>🤝</span><span>Healthier relational patterns can be developed</span></div>
+    </div>
+  </div>
+  <div class="neuro-right">
+    <span class="brain-emoji">🧠</span>
+    <span class="brain-stat">Growth</span>
+    <span class="brain-stat-label">is always possible through reflection and practice</span>
+    <p>Small, consistent changes reinforce healthier habits over time. We emphasize awareness, reflection, and repetition in every session.</p>
+  </div>
+</section>
+
+<!-- BOOKING CTA -->
+<section class="rates" id="contact">
+  <span class="section-label">Ready to Connect?</span>
+  <h2>Book a Session Today</h2>
+  <p>Rates are determined based on session format, group size, and engagement scope. Custom packages available — offered worldwide, virtually and in-person.</p>
+  <div class="booking-box">
+    <div id="form-area">
+      <form id="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">First Name</label>
+            <input type="text" id="fname" name="first_name" placeholder="Jane" required>
+          </div>
+          <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" id="lname" name="last_name" placeholder="Doe" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="jane@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number (optional)</label>
+          <input type="tel" id="phone" name="phone" placeholder="(555) 000-0000">
+        </div>
+        <div class="form-group">
+          <label for="session_type">Session Type</label>
+          <select id="session_type" name="session_type">
+            <option value="">Select one...</option>
+            <option value="Teens Only">Teens Only</option>
+            <option value="Guardians Only">Guardians Only</option>
+            <option value="Teens and Guardians (Joint)">Teens and Guardians (Joint)</option>
+            <option value="Company for Employees">Company for Employees</option>
+            <option value="Small Groups">Small Groups</option>
+            <option value="Not Sure Yet">Not Sure Yet</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell me a bit about what you're looking for..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; text-align:center; border:none; cursor:pointer; font-size:1rem;">Send Message</button>
+      </form>
+    </div>
+    <div class="form-success" id="form-success">
+      <span class="check">✅</span>
+      <h3>Message Sent!</h3>
+      <p>Thank you for reaching out. Sarah will get back to you shortly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">
+    <img src="are_u_logo.jpg" alt="ARE U Motivated">
+  </div>
+  <p>The Connection Hour · Wellness Education</p>
+  <div class="footer-tag">Awareness · P
+<script>
+  document.getElementById("contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    const data = new FormData(this);
+    fetch("https://formspree.io/f/xvzbldrw", {
+      method: "POST",
+      body: data,
+      headers: { "Accept": "application/json" }
+    }).then(res => {
+      if (res.ok) {
+        document.getElementById("form-area").style.display = "none";
+        document.getElementById("form-success").style.display = "block";
+      } else {
+        alert("Something went wrong. Please email sarah.livingstone.msw@gmail.com directly.");
+      }
+    }).catch(() => {
+      alert("Something went wrong. Please email sarah.livingstone.msw@gmail.com directly.");
+    });
+  });
+</script>
+</body>
+</html>
