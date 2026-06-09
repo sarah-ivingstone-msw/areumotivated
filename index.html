@@ -154,24 +154,24 @@
 
   /* ===== PHOTO + BIO ===== */
   .intro {
-    display: grid;
-    grid-template-columns: 420px 1fr;
+    display: flex;
+    flex-direction: row;
     border-bottom: 2px solid var(--gray);
-    align-items: start;
   }
 
   .intro-photo {
-    position: relative;
-    top: 85px;
+    width: 420px;
+    flex-shrink: 0;
     overflow: hidden;
     background: var(--black);
-    height: calc(100vh - 85px);
+    min-height: 600px;
   }
 
   .intro-photo img {
     width: 100%;
     height: 100%;
-    object-fit: contain;
+    object-fit: cover;
+    object-position: center 35%;
     display: block;
   }
 
@@ -573,7 +573,6 @@
   .form-success p { color: #666; font-size: 0.95rem; }
 
   @media(max-width: 600px) {
-    .intro-bio h2 { display: none; }
     .form-row { grid-template-columns: 1fr; }
     .booking-box { padding: 1.75rem 1.25rem; }
   }
@@ -642,8 +641,21 @@
 
   /* ===== RESPONSIVE ===== */
   @media(max-width: 900px) {
-    .intro { grid-template-columns: 1fr; }
-    .intro-photo { height: 420px; }
+    .intro {
+      flex-direction: column;
+    }
+    .intro-photo {
+      width: 100%;
+      height: auto;
+      min-height: unset;
+    }
+    .intro-photo img {
+      width: 100%;
+      height: auto;
+      object-fit: unset;
+      object-position: unset;
+      display: block;
+    }
     .aph-cards { grid-template-columns: 1fr; }
     .approach-grid { grid-template-columns: 1fr 1fr; }
     .neuro { grid-template-columns: 1fr; }
@@ -663,7 +675,8 @@
     .hero-buttons { flex-direction: column; align-items: center; }
     .hero-buttons .btn { width: 100%; text-align: center; }
 
-    .intro-photo { height: 480px; }
+    .intro-photo { height: 420px; }
+    .intro-photo img { object-fit: cover; object-position: center 35%; }
     .intro-bio { padding: 2.5rem 4%; }
     .intro-bio h2 { font-size: 1.8rem; }
     .intro-bio p { font-size: 0.92rem; }
