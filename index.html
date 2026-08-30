@@ -603,6 +603,151 @@
 
   .bio-para-dark { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.75); }
   .bio-para-mid { background: rgba(255,255,255,0.12); color: rgba(255,255,255,0.85); }
+
+  /* ===== PILOT PROGRAM ===== */
+  .pilot-section {
+    padding: 6rem 6%;
+    background: var(--black);
+    color: var(--white);
+    text-align: center;
+  }
+
+  .pilot-section h2 { color: var(--white); margin-bottom: 0.5rem; }
+  .pilot-subtitle { color: rgba(255,255,255,0.6); font-size: 1rem; margin-bottom: 3rem; }
+
+  .pilot-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .pilot-stat {
+    background: rgba(255,255,255,0.07);
+    border-radius: 12px;
+    padding: 1.5rem 1rem;
+  }
+
+  .pilot-number {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: var(--red);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+
+  .pilot-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .pilot-callout {
+    background: var(--red);
+    color: var(--white);
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    font-size: 1.15rem;
+    font-weight: 700;
+    max-width: 700px;
+    margin: 0 auto 2.5rem;
+  }
+
+  .pilot-includes {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .pilot-col h4 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 1rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--red);
+    margin-bottom: 0.75rem;
+  }
+
+  .pilot-col ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .pilot-col ul li {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.92rem;
+    padding: 0.35rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    line-height: 1.5;
+  }
+
+  /* ===== TESTIMONIALS ===== */
+  .testimonials-section {
+    padding: 6rem 6%;
+    background: var(--off-white);
+    text-align: center;
+  }
+
+  .testimonials-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 3rem;
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .testimonial-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 2px solid var(--gray);
+    text-align: left;
+  }
+
+  .testimonial-text {
+    font-size: 0.95rem;
+    line-height: 1.75;
+    color: #555;
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+
+  .testimonial-author strong {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--black);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .testimonial-author span {
+    font-size: 0.82rem;
+    color: var(--red);
+    font-weight: 600;
+  }
+
+  .testimonial-logo {
+    height: 32px;
+    object-fit: contain;
+    display: block;
+    margin-bottom: 0.75rem;
+    filter: grayscale(100%);
+    opacity: 0.6;
+  }
+
   footer {
     background: var(--black);
     color: var(--white);
@@ -697,6 +842,11 @@
     .booking-box { padding: 1.75rem 1.5rem; }
 
     footer { padding: 2rem 4%; flex-direction: column; text-align: center; align-items: center; }
+    .testimonials-grid { max-width: 100%; }
+    .pilot-grid { grid-template-columns: repeat(2, 1fr); }
+    .pilot-includes { grid-template-columns: 1fr; }
+    .pilot-section { padding: 3.5rem 4%; }
+    .testimonials-section { padding: 3.5rem 4%; }
     .footer-logo img { height: 30px; }
   }
 </style>
@@ -722,10 +872,10 @@
   <h1>Welcome to</h1>
   <span class="script">The Connection Hour</span>
   <div class="hero-paras">
-    <div class="hero-para hero-para-light">A supportive one-hour discussion designed to help people build healthier communication, strengthen relationships, and develop practical life skills.</div>
-    <div class="hero-para hero-para-gray">Participants may include teenagers, guardians, families, employees, or small groups. Teenagers and guardians may engage separately or together, depending on the organization and goals of the session. Working with teenagers requires a thoughtful approach that respects their developmental stage, abilities, and boundaries.</div>
-    <div class="hero-para hero-para-light">While the core topics remain consistent across all groups, the style and direction of the discussion are adapted to fit the population being served. Whether working with employees, small groups, teenagers, guardians, or families, the conversation is guided in a way that is relevant, respectful, and practical for the participants involved.</div>
-    <div class="hero-para hero-para-gray">The goal is to create an environment where people can reflect, learn, and practice skills that support healthier relationships, clearer communication, and personal growth.</div>
+    <div class="hero-para hero-para-light"><span style="font-size:1.25rem; font-weight:900; color:var(--red); text-transform:uppercase; letter-spacing:1px;">Burnout is real.</span> It doesn't just happen to adults. It happens to teenagers, families, and entire organizations. The Connection Hour exists to stop it — or slow it down — before it takes over.</div>
+    <div class="hero-para hero-para-gray">Through guided discussion, participants build the practical skills needed for healthier communication, stronger relationships, greater resilience, and better everyday well-being.</div>
+    <div class="hero-para hero-para-light"><strong>For Teenagers & Families</strong> — Build practical skills early to help young people navigate school, relationships, stress, and the transition into adulthood — before unhealthy patterns and burnout take hold.</div>
+    <div class="hero-para hero-para-gray"><strong>For Corporations & Small Groups</strong> — Strengthen practical skills that help adults manage the demands of work and life, reduce the progression of burnout, and improve quality of life along the way.</div>
   </div>
   <div class="hero-buttons">
     <a href="javascript:void(0)" onclick="window.location='mai'+'lto:'+'sarah.livingstone.msw'+'@'+'gmail.com'" class="btn btn-primary">Book a Session</a>
@@ -925,6 +1075,103 @@
       <h3>Message Sent!</h3>
       <p>Thank you for reaching out. Sarah will get back to you shortly.</p>
     </div>
+  </div>
+</section>
+
+<!-- PILOT PROGRAM -->
+<section class="pilot-section">
+  <span class="section-label">Now Booking Fall 2026</span>
+  <h2>The Connection Hour for Adolescents</h2>
+  <p class="pilot-subtitle">Limited pilot spots for youth organizations and nonprofits.</p>
+  <div class="pilot-grid">
+    <div class="pilot-stat">
+      <div class="pilot-number">3</div>
+      <div class="pilot-label">Saturday Sessions</div>
+    </div>
+    <div class="pilot-stat">
+      <div class="pilot-number">1 hr</div>
+      <div class="pilot-label">Per Session</div>
+    </div>
+    <div class="pilot-stat">
+      <div class="pilot-number">6–12</div>
+      <div class="pilot-label">Grade Levels</div>
+    </div>
+    <div class="pilot-stat">
+      <div class="pilot-number">Live</div>
+      <div class="pilot-label">Discussion-Based</div>
+    </div>
+  </div>
+  <div class="pilot-callout">
+    Build communication, confidence, and life skills in just three Saturdays.
+  </div>
+  <div class="pilot-includes">
+    <div class="pilot-col">
+      <h4>How It's Delivered</h4>
+      <ul>
+        <li>3 Saturday sessions</li>
+        <li>1 hour each</li>
+        <li>Discussion-based</li>
+        <li>Facilitated by Sarah Livingstone, MSW</li>
+      </ul>
+    </div>
+    <div class="pilot-col">
+      <h4>What's Included</h4>
+      <ul>
+        <li>Three professionally facilitated sessions</li>
+        <li>Interactive discussion</li>
+        <li>Practical tools participants can apply immediately</li>
+        <li>Time for questions and engagement</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <span class="section-label">What People Are Saying</span>
+  <h2>Testimonials</h2>
+  <div class="testimonials-grid">
+
+    <div class="testimonial-card">
+      <p class="testimonial-text">"We had the chance to work with Sarah Livingstone from ARE U Motivated for a burnout training, and it was exactly what our team needed. The training itself was engaging, easy to follow, and full of practical takeaways. Sarah broke down burnout in a way that made sense — what it looks like, why it happens, and what we can do about it. More importantly, she gave us realistic tools we can use every day, both individually and as a team."</p>
+      <div class="testimonial-author">
+        <strong>Marsha Kiner, MS, CAE</strong>
+        <span>Executive Director, Children's Trust of Alachua County</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-text">"I found the workshop to be deeply useful and engaging. Sarah's professional yet conversational style was able to not only hold our attention, but made us learn deeper. I also found her use of various scenarios meaningful and relatable. As an academic with both scholarly and administrative responsibilities, I found it to be very useful for my career. I highly recommend Sarah Livingstone!"</p>
+      <div class="testimonial-author">
+        <strong>Pasha Agoes, Ph.D.</strong>
+        <span>Assistant Instructional Professor, University of Florida — Dial Center for Speech & Communication Studies</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-text">"Sarah was a fantastic speaker for my group of professionals! Sarah delivered her message in a way that was both engaging and entertaining, helping the group really understand what burnout is and how to manage it. The discussion during her presentation was lively, and everyone was truly engaged."</p>
+      <div class="testimonial-author">
+        <strong>Angela Chan</strong>
+        <span>Florida Public Relations Association, Gainesville Chapter</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-text">"Her style is deeply compassionate and engaging, and she led all of us through several very useful exercises that we will return to again and again. I would highly recommend Sarah Livingstone to any organization or group looking to go a little deeper with one another to build a culture of self-care."</p>
+      <div class="testimonial-author">
+        <strong>Emily Rine Butler, Ph.D.</strong>
+        <span>Instructional Professor & Director, William & Grace Dial Center, University of Florida</span>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-text">"Sarah came in for a stellar presentation for the Greater Gainesville Young Professionals. She came in for a working lunch that left us feeling refreshed with new action items to improve our work/life balance. I highly recommend Sarah and Are U Motivated for anyone in a workplace, school, or organization who feels the pressure of being pulled in a million different ways."</p>
+      <div class="testimonial-author">
+        <strong>Justin Clement</strong>
+        <span>Member Development Manager, Greater Gainesville Chamber of Commerce — Greater Gainesville Young Professionals</span>
+      </div>
+    </div>
+
   </div>
 </section>
 
