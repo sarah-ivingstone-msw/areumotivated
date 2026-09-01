@@ -844,3 +844,64 @@ footer p { color: rgba(255,255,255,0.4); font-size: 0.82rem; }
   .principles-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
 }
+
+/* ===== 3-SESSION PILOT HOME SECTION ===== */
+.pilot-home-section {
+  background: var(--off-white);
+  border-top: 3px solid var(--red);
+  border-bottom: 3px solid var(--red);
+}
+
+.pilot-home-inner {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 3rem;
+  align-items: center;
+}
+
+.pilot-home-inner h2 { margin-bottom: 1rem; }
+.pilot-home-inner p { color: #555; font-size: 0.97rem; line-height: 1.75; margin-bottom: 0.75rem; }
+
+.pilot-home-card {
+  background: var(--black);
+  border-radius: 16px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.pilot-home-stat {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 1rem;
+}
+
+.pilot-big {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: var(--red);
+  line-height: 1;
+  min-width: 60px;
+}
+
+.pilot-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.pilot-home-detail {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.55);
+  line-height: 1.6;
+}
+
+@media(max-width: 900px) {
+  .pilot-home-inner { grid-template-columns: 1fr; }
+}
