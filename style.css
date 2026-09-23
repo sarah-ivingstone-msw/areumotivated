@@ -720,3 +720,39 @@ footer p { color: rgba(255,255,255,0.35); font-size: 0.82rem; }
   .photo-gallery { grid-template-columns: 1fr 1fr; }
   .session-photos { grid-template-columns: 1fr; }
 }
+
+/* Mobile homepage and navigation fix */
+@media(max-width: 900px) {
+  nav {
+    padding: 0 4%;
+  }
+
+  .nav-logo img {
+    height: 48px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    background: var(--black);
+    padding: 1.5rem 5%;
+    gap: 1.25rem;
+    border-top: 2px solid var(--red);
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+}
